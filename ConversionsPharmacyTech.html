@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+
+<html xml:lang="en-US" lang="en-US" dir="ltr">
+
+<head>
+  <!-- Slowly's Standard Webpage Template last updated 5-9-2012 -->
+  <!-- To add to Bluefish: as root copy to /usr/share/bluefish/templates -->
+  <!-- To add to BlueGriffon:  -->
+  <!-- To add to Dreamweaver: -->
+  <meta charset="UTF-8">  
+  <meta name="robots" content="noarchive, noindex, nofollow">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+  <title>Conversions for Pharmacy Techs - By Slowly</title>
+
+  <style>
+    /* Last Updated for HTML 5 07-15-2012 */
+    BODY {font-family:Arial;max-width:800px;font-size:10pt;}
+    HEADER{display:block;text-align:center;}
+    NAV{display:block;padding:10px;font-size:10px;margin:5px;text-align:center;}
+    SECTION{max-width:98%;}
+    ARTICLE{margin: 10px;padding: 10px;border-radius: 10px;}
+    ASIDE{display:block;width:25%;float:left;margin: 15px;font-style: italic;}
+    FOOTER{clear: both;display: block;padding: 15px;}
+    H1,H2,H3,H4,H5,H6{page-break-after:avoid;}
+    P, TD, TH {font-family:Arial;font-size:10pt;}
+    LI {padding:5px;}
+    CODE {font-family:courier;font-size:10pt;}
+    PRE {font-size: 9pt;}
+    /* Classes */
+    .SlapStamp
+    {
+      color: #F47D31;
+      background-color: #fff;
+      -webkit-box-shadow: 2px 2px 20px #888;
+      -webkit-transform: rotate(-45deg);
+      -moz-box-shadow: 2px 2px 20px #888;
+      -moz-transform: rotate(-45deg);
+      position: absolute;
+      padding: 0px 150px;
+      text-align:center;
+    }
+    .important {font-family:verdana;font-weight:bold;color:red;}
+    .snippet {font-weight:bold;font-style:italic;}
+    .assignment{border:1px green solid;font-weight:bold;}
+    .classDate{border:2px red solid;font-weight:bolder;text-decoration:underline;}
+    .myAnswer{border:1px black solid;}
+    .Done{background-color: LightGrey;}
+    .groupProject{background-color: rgb(170, 255, 170);}
+    .codeIt{font-family:courier;}
+    .underlineIt{text-decoration:underline;}
+    .bigRed{color:red; font-weight:bold; font-size:12pt;font-family:sans-serif;}
+    .smallRed{line-height:18.0pt;font-size:8pt;color:#A81817;}
+    .lightRed{color:#ff3300;}
+    .tiny{margin: 1px;font-size: 9px;}
+    .greyAddress{font-size:7.5pt;color:gray;}
+    .LimeLine{border-bottom: 2px solid #0bce7e;width:200px;}
+    .veryPalePink{background-color:rgb(255, 240,255);}
+    .veryPalePinkDashed{background-color:rgb(255, 240,255);border:1px dashed black;}
+    .superTitle{font-size:24px;color:#315A6C;text-decoration:underline;}
+    .clsH1{font-size:14pt;font-weight:bolder;}
+    .clsH2{font-size:12pt;font-weight:bold;}
+    .clsH3{font-size:10pt;font-weight:bold;}
+    .chsH4{font-size:8pt;font-weight:bold;}
+    }
+    .autoMargin{margin: 0px auto;}
+    .dropshadow 
+    {
+      -moz-box-shadow: 3px 3px 4px #999; /* Firefox */
+      -webkit-box-shadow: 3px 3px 4px #999; /* Safari/Chrome */
+      box-shadow: 3px 3px 4px #999; /* Opera and other CSS3 supporting browsers */
+      -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999')";/* IE 8 */
+      :progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#999999');/* IE 5.5 - 7 */ 
+    }
+    .cornflower 
+    {
+	    background-color: #8CA4D4;
+	    color: #2F2F65;
+	    font-weight: bold;
+	    font-size: 18px;
+    }
+    /* Stolen from Stack Overflow */
+    .alert
+    {
+      padding:5px;
+      font-weight:bold;
+      margin-bottom:10px;
+      margin-top:5px;
+      border:2px dotted #AE0000;
+    }
+    .button
+    {
+      color:#3E6D8E;
+      background-color:#E0EAF1;
+      border-bottom:1px solid #3E6D8E;
+      border-right:1px solid #7F9FB6;
+      padding:3px 4px 3px 4px;
+      margin:2px 2px 2px 0;
+    }
+    .badge
+    {
+      color:#fff;
+      background-color:#333;
+      border:1px solid #333;
+      margin:0 3px 3px 0;
+      padding:0px 6px 0px 3px;
+      display:inline-block;
+    }
+    .interesting{background-color:#ffefc6;}
+    .orangeLight{font-family:Trebuchet MS;background-color:#ff9900;color:#fff;}
+    .orangeDark{background-color:#df5c13;padding:3px 15px 5px 38px;margin:2px 0px;color:white;}
+    .maroon{color:maroon;}
+    .navy{color:navy;}
+    .cyan{color:#2b91af;}
+    .aqua{color:#0078C0;font-weight:bold; font-size:10pt;}
+    .diffchange {color:silver;font-weight: bold;text-decoration: underline;font-size:12pt;}
+    .warning
+    {
+      background-color:#E23535;
+      color:#FFFFFF;
+      font-size:10px;
+      padding:0 5px 1px;
+    }
+    /* Stolen from javadoc */
+    .mauveDark{background:#CCCCFF;}
+    .mauveLight{background:#EEEEFF;}
+    .darkBlue{background-color:#00008B;color:#FFFFFF;}
+    /* Stolen from John Urbanek */
+    .BlueBold{background-color: #333333;color:#00CCFF;text-align:center;font-style:italic;}
+  </style>
+
+  <!-- basic 10-key calculator -->
+  <script language="javascript" src="Assets/calc-1.1-min.js"></script>
+  <!-- roman numeral converter -->
+  <script language="javascript" src="Assets/roman.js"></script>
+
+</head>
+
+<body onLoad="JSCALC.init();">  
+
+<table id="container" width="800">
+<tr><td>
+<table id="content" style="border: 1px solid green;" width="98%">
+<tr><td align="left" valign="top">
+
+<header>
+  <h2 class="darkBlue">Conversions for Pharmacy Techs</h2>
+  <address>(NaN = Not a Number)</address>
+  <hr align="center" width="800">
+</header>
+
+<article>
+  
+  <table>
+    <tr>
+      <td align="left"><div class="calc"></div></td>
+      <td align="right">
+          <p>
+            Roman Numerial Converter<br>
+            By <a href="https://twitter.com/hulbert" target="_blank">Scott Hulbert</a><br>
+          </p>
+          <div>
+            <p>Decimal:<br><input id="number" type="text" style="width: 30%"> <input type="button" onClick="convertToRoman();" value="Decimal to Roman"></p>
+            <p>Roman:<br><input id="roman" type="text" style="width: 30%"> <input type="button"  onClick="convertRoman();" value="Roman to Decimal"></p>
+            <p>Correct a Roman Numeral:<br>
+              <input id="roman2" type="text" style="width: 30%"> <input type="button" onClick="correctRoman()" value="Convert"> <input type="reset" value="Reset">
+            </p>
+          </div>
+      </td>
+    </tr>
+  </table>
+  
+<br>
+<div id="divLiquidVolume" style="border:1px solid blue;">
+  <h3 style='text-decoration:underline;'>Liquid Volume</h3>
+  <table id="tblLiquidVolume">
+    <tr>
+      <th>Conversion Type</th>
+      <th>Enter Value Here</th>
+      <th>Calc</th>
+      <th>Output</th>
+    </tr>
+    <tr id="trFluidOuncesToPints">
+      <td title="Note: there are 2 Cups in a Pint and 2 Pints in a Quart.">Fluid Ounces to Pints</td>
+      <td>
+        <input type="text" id="txtFtoP" name="txtFtoP" size="32" maxlength="80" 
+               onchange="document.getElementById('lblFtoP').textContent = (document.getElementById('txtFtoP').value / 16) + ' Pints';" />
+      </td>
+      <td>
+        <input type="button" name="btnFtoP" id="btnFtoP" value="calculate" 
+               onclick="document.getElementById('lblFtoP').textContent = (document.getElementById('txtFtoP').value / 16) + ' Pints';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblFtoP">converted Pints will appear here</p></td>
+    </tr>
+    <tr id="trPintsToFluidOunces">
+      <td title="Note: there are 1/2 Quarts in a Pint and 1/2 Pints in a Cup.">Pints to Fluid Ounces</td>
+      <td>
+        <input type="text" id="txtPtoF" name="txtPtoF" size="32" maxlength="80" 
+               onchange="document.getElementById('lblPtoF').textContent = (document.getElementById('txtPtoF').value * 16) + ' Fluid Ounces';" />
+      </td>
+      <td>
+        <input type="button" name="btnPtoF" id="btnPtoF" value="calculate" 
+               onclick="document.getElementById('lblPtoF').textContent = (document.getElementById('txtPtoF').value * 16) + ' Fluid Ounces';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblPtoF">converted Fluid Ounces will appear here</p></td>
+    </tr>
+    <tr id="trFluidOuncesToMLs">
+      <td>Fluid Ounces to Milliliters</td>
+      <td>
+        <input type="text" id="txtFtoM" name="txtFtoM" size="32" maxlength="80" 
+               onchange="document.getElementById('lblFtoM').textContent = (document.getElementById('txtFtoM').value * 30) + ' Milliliters';" />
+      </td>
+      <td>
+        <input type="button" name="btnFtoM" id="btnFtoM" value="calculate" 
+               onclick="document.getElementById('lblFtoM').textContent = (document.getElementById('txtFtoM').value * 30) + ' Milliliters';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblFtoM">converted Milliliters will appear here</p></td>
+    </tr>
+    <tr id="trMLsToFluidOunces">
+      <td>Milliliters to Fluid Ounces</td>
+      <td>
+        <input type="text" id="txtMtoF" name="txtMtoF" size="32" maxlength="80" 
+               onchange="document.getElementById('lblMtoF').textContent = (document.getElementById('txtMtoF').value / 30) + ' Fluid Ounces';" />
+      </td>
+      <td>
+        <input type="button" name="btnMtoF" id="btnMtoF" value="calculate" 
+               onclick="document.getElementById('lblMtoF').textContent = (document.getElementById('txtMtoF').value / 30) + ' Fluid Ounces';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblMtoF">converted Fluid Ounces will appear here</p></td>
+    </tr>
+
+
+    <tr id="trLitersToGallons">
+      <td>Liters to Gallons</td>
+      <td>
+        <input type="text" id="txtLtoG" name="txtLtoG" size="32" maxlength="80" 
+               onchange="document.getElementById('lblLtoG').textContent = (document.getElementById('txtLtoG').value * .26417205235815) + ' Gallons';" />
+      </td>
+      <td>
+        <input type="button" name="btnLtoG" id="btnLtoG" value="calculate" 
+               onclick="document.getElementById('lblLtoG').textContent = (document.getElementById('txtLtoG').value * .26417205235815) + ' Gallons';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblLtoG">converted Gallons will appear here</p>
+      </td>
+    </tr>
+
+    <tr id="trGallonsToLiters">
+      <td>Gallons to Liters</td>
+      <td>
+        <input type="text" id="txtGtoL" name="txtGtoL" size="32" maxlength="80" 
+               onchange="document.getElementById('lblGtoL').textContent = (document.getElementById('txtGtoL').value * 3.7854117839999772) + ' Liters';" />
+      </td>
+      <td>
+        <input type="button" name="btnGtoL" id="btnGtoL" value="calculate" 
+               onclick="document.getElementById('lblGtoL').textContent = (document.getElementById('txtGtoL').value * 3.7854117839999772) + ' Liters';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblGtoL">converted Liters will appear here</p>
+      </td>
+    </tr>
+
+
+
+    <tr id="trTeaspoonsToMLs">
+      <td title="Note: there are 3 Teaspoons in a Tablespoon.">Teaspoons to Milliliters</td>
+      <td>
+        <input type="text" id="txtTtoM" name="txtTtoM" size="32" maxlength="80" 
+               onchange="document.getElementById('lblTtoM').textContent = (document.getElementById('txtTtoM').value * 5) + ' Milliliters';" />
+      </td>
+      <td>
+        <input type="button" name="btnTtoM" id="btnTtoM" value="calculate" 
+               onclick="document.getElementById('lblTtoM').textContent = (document.getElementById('txtTtoM').value * 5) + ' Milliliters';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblTtoM">converted Milliliters will appear here</p></td>
+    </tr>
+    <tr id="trMLsToTeaspoons">
+      <td title="Note: there are 1/3 Tablespoons in a Teaspoon.">Milliliters to Teaspoons</td>
+      <td>
+        <input type="text" id="txtMtoT" name="txtMtoT" size="32" maxlength="80" 
+               onchange="document.getElementById('lblMtoT').textContent = (document.getElementById('txtMtoT').value / 5) + ' Teaspoons';" />
+      </td>
+      <td>
+        <input type="button" name="btnMtoT" id="btnMtoT" value="calculate" 
+               onclick="document.getElementById('lblMtoT').textContent = (document.getElementById('txtMtoT').value / 5) + ' Teaspoons';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblMtoT">converted Teaspoons will appear here</p></td>
+    </tr>    
+    <tr id="trDramsToOunces">
+      <td>Drams to Ounces</td>
+      <td>
+        <input type="text" id="txtDtoO" name="txtDtoO" size="32" maxlength="80" 
+               onchange="document.getElementById('lblDtoO').textContent = (document.getElementById('txtDtoO').value / 8) + ' Ounces';" />
+      </td>
+      <td>
+        <input type="button" name="btnDtoO" id="btnDtoO" value="calculate" 
+               onclick="document.getElementById('lblDtoO').textContent = (document.getElementById('txtDtoO').value / 8) + ' Ounces';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblDtoO">converted Ounces will appear here</p></td>
+    </tr>
+    <tr id="trOuncesToDrams">
+      <td>Ounces to Drams</td>
+      <td>
+        <input type="text" id="txtOtoD" name="txtOtoD" size="32" maxlength="80" 
+               onchange="document.getElementById('lblOtoD').textContent = (document.getElementById('txtOtoD').value * 8) + ' Drams';" />
+      </td>
+      <td>
+        <input type="button" name="btnOtoD" id="btnOtoD" value="calculate" 
+               onclick="document.getElementById('lblOtoD').textContent = (document.getElementById('txtOtoD').value * 8) + ' Drams';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblOtoD">converted Drams will appear here</p></td>
+    </tr>
+    <tr id="trTablespoonsToCups">
+      <td>Tablespoons to Cups</td>
+      <td>
+        <input type="text" id="txtTtoC" name="txtTtoC" size="32" maxlength="80" 
+               onchange="document.getElementById('lblTtoC').textContent = (document.getElementById('txtTtoC').value * .0625) + ' Cups';" />
+      </td>
+      <td>
+        <input type="button" name="btnTtoC" id="btnTtoC" value="calculate" 
+               onclick="document.getElementById('lblTtoC').textContent = (document.getElementById('txtTtoC').value * .0625) + ' Cups';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblTtoC">converted Cups will appear here</p></td>
+    </tr>
+    <tr id="trCupsToTablespoons">
+      <td>Cups to Tablespoons</td>
+      <td>
+        <input type="text" id="txtCtoT" name="txtCtoT" size="32" maxlength="80" 
+               onchange="document.getElementById('lblCtoT').textContent = (document.getElementById('txtTtoC').value / .0625) + ' Tablespoons';" />
+      </td>
+      <td>
+        <input type="button" name="btnCtoT" id="btnCtoT" value="calculate" 
+               onclick="document.getElementById('lblCtoT').textContent = (document.getElementById('txtCtoT').value / .0625) + ' Tablespoons';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblCtoT">converted Tablespoons will appear here</p></td>
+    </tr>
+
+  </table>
+</div>
+<br>
+
+<br>
+<div id="divWeight" style="border:1px solid blue;">
+  <h3 style='text-decoration:underline;'>Weight and Mass</h3>
+  <table id="tblLiquidVolume">
+    <tr>
+      <th>Conversion Type</th>
+      <th>Enter Value Here</th>
+      <th>Calc</th>
+      <th>Output</th>
+    </tr>
+    <tr id="trKilogramsToPounds">
+      <td>Kilograms to Pounds</td>
+      <td>
+        <input type="text" id="txtKtoP" name="txtKtoP" size="32" maxlength="80" 
+               onchange="document.getElementById('lblKtoP').textContent = (document.getElementById('txtKtoP').value * 2.2) + ' Pounds';" />
+      </td>
+      <td>
+        <input type="button" name="btnKtoP" id="btnKtoP" value="calculate" 
+               onclick="document.getElementById('lblKtoP').textContent = (document.getElementById('txtKtoP').value * 2.2) + ' Pounds';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblKtoP">converted Pounds will appear here</p></td>
+    </tr>
+    <tr id="trPoundsToKilograms">
+      <td>Pounds to Kilograms</td>
+      <td>
+        <input type="text" id="txtPtoK" name="txtPtoK" size="32" maxlength="80" 
+               onchange="document.getElementById('lblPtoK').textContent = (document.getElementById('txtPtoK').value / 2.2) + ' Kilograms';" />
+      </td>
+      <td>
+        <input type="button" name="btnPtoK" id="btnPtoK" value="calculate" 
+               onclick="document.getElementById('lblPtoK').textContent = (document.getElementById('txtPtoK').value / 2.2) + ' Kilograms';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblPtoK">converted Kilograms will appear here</p></td>
+    </tr>
+    <tr id="trOuncesToGrams">
+      <td>Ounces to Grams</td>
+      <td>
+        <input type="text" id="txtOtoG" name="txtOtoG" size="32" maxlength="80" 
+               onchange="document.getElementById('lblOtoG').textContent = (document.getElementById('txtOtoG').value * 28.4) + ' Grams';" />
+      </td>
+      <td>
+        <input type="button" name="btnOtoG" id="btnOtoG" value="calculate" 
+               onclick="document.getElementById('lblOtoG').textContent = (document.getElementById('txtOtoG').value * 28.4) + ' Grams';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblOtoG">converted Grams will appear here</p></td>
+    </tr>
+    <tr id="trGramsToOunces">
+      <td>Grams to Ounces</td>
+      <td>
+        <input type="text" id="txtGtoO" name="txtGtoO" size="32" maxlength="80" 
+               onchange="document.getElementById('lblGtoO').textContent = (document.getElementById('txtGtoO').value / 28.4) + ' Ounces';" />
+      </td>
+      <td>
+        <input type="button" name="btnGtoO" id="btnGtoO" value="calculate" 
+               onclick="document.getElementById('lblGtoO').textContent = (document.getElementById('txtGtoO').value / 28.4) + ' Ounces';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblGtoO">converted Ounces will appear here</p></td>
+    </tr>
+    <tr id="trGrainsToMGs">
+      <td>Grains to Milligrams</td>
+      <td>
+        <input type="text" id="txtGtoM" name="txtGtoM" size="32" maxlength="80" 
+               onchange="document.getElementById('lblGtoM').textContent = (document.getElementById('txtGtoM').value * 64.8) + ' Milligrams';" />
+      </td>
+      <td>
+        <input type="button" name="btnGtoM" id="btnGtoM" value="calculate" 
+               onclick="document.getElementById('lblGtoM').textContent = (document.getElementById('txtGtoM').value * 64.8) + ' Milligrams';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblGtoM">converted Milligrams will appear here</p></td>
+    </tr>
+    <tr id="trMGsToGrains">
+      <td>Milligrams to Grains</td>
+      <td>
+        <input type="text" id="txtMtoG" name="txtMtoG" size="32" maxlength="80" 
+               onchange="document.getElementById('lblMtoG').textContent = (document.getElementById('txtMtoG').value / 64.8) + ' Grains';" />
+      </td>
+      <td>
+        <input type="button" name="btnMtoG" id="btnMtoG" value="calculate" 
+               onclick="document.getElementById('lblMtoG').textContent = (document.getElementById('txtMtoG').value / 64.8) + ' Grains';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblMtoG">converted Grains will appear here</p></td>
+    </tr>
+    <tr id="trOuncesToGrains">
+      <td>Ounces to Grains</td>
+      <td>
+        <input type="text" id="txtOtoGr" name="txtOtoGr" size="32" maxlength="80" 
+               onchange="document.getElementById('lblOtoGr').textContent = (document.getElementById('txtOtoGr').value * 437.5) + ' Grains';" />
+      </td>
+      <td>
+        <input type="button" name="btnOtoGr" id="btnOtoGr" value="calculate" 
+               onclick="document.getElementById('lblOtoGr').textContent = (document.getElementById('txtOtoGr').value * 437.5) + ' Grains';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblOtoGr">converted Grains will appear here</p></td>
+    </tr>
+    <tr id="trGrainsToOunces">
+      <td>Grains to Ounces</td>
+      <td>
+        <input type="text" id="txtGrtoO" name="txtGrtoO" size="32" maxlength="80" 
+               onchange="document.getElementById('lblGrtoO').textContent = (document.getElementById('txtGrtoO').value / 437.5) + ' Ounces';" />
+      </td>
+      <td>
+        <input type="button" name="btnGrtoO" id="btnGrtoO" value="calculate" 
+               onclick="document.getElementById('lblGrtoO').textContent = (document.getElementById('txtGrtoO').value / 437.5) + ' Ounces';" />
+      </td>
+      <td style='border:1px red solid;'>
+        <p id="lblGrtoO">converted Ounces will appear here</p></td>
+    </tr>
+  </table>
+</div>
+<br>
+
+</article>
+
+</td></tr></table>
+</td></tr></table>
+
+</body>
+</html>

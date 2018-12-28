@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US" xml:lang="en-US" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Slowly's Handy-Dandy Conversion Tables</title>
+  <style>
+    h1,h2,h3,h4,h5{page-break-after:avoid;}
+    BODY, P, TD, TH {font-family:Arial;font-size:10pt;}
+    LI {padding:2px;}
+    CODE {font-family:courier;font-size:10pt;text-transform:uppercase;}
+    PRE {font-size: 9pt;}
+    .important {font-family:verdana;font-weight:bold;color:red;}
+    .snippet {font-weight:bold;font-style:italic;}
+    .assignment{border:1px green solid;font-weight:bold;}
+    .classDate{border:2px red solid;font-weight:bolder;text-decoration:underline;}
+    .myAnswer{border:1px black solid;}
+  </style>
+  <script language="javascript" src="Calculator/TenKeyCalculatorAdvanced/calc-1.1.js"></script>
+</head>
+
+<body onLoad="JSCALC.init();">
+
+<table id="container" width="900">
+<tr><td>
+
+<table id="content" width="98%" style='border:1px green solid;'>
+<tr><td>
+
+<div class="calc"></div>
+
+<div id="divTemperature">
+  <h3 style='text-decoration:underline;'>Temperature</h3>
+  <table id="tblTempConversion">
+    <tr>
+      <th>Conversion Type</th>
+      <th>Enter Temperature Here</th>
+      <th>Calc</th>
+      <th>Output</th>
+    </tr>
+    <tr>
+      <td>Fahrenheit to Celsius</td>
+      <td>
+        <input type="text" id="txtFtoC" name="txtFtoC" size="32" maxlength="80" 
+               onchange="document.getElementById('lblFtoC').textContent = ((5/9)*(document.getElementById('txtFtoC').value-32)) + ' &deg; Celsius';" />
+      </td>
+      <td>
+        <input type="button" name="btnFtoC" id="btnFtoC" value="calculate" 
+               onclick="document.getElementById('lblFtoC').textContent = ((5/9)*(document.getElementById('txtFtoC').value-32)) + ' &deg; Celsius';" />
+      </td>
+      <td style='border:1px red solid;'><p id="lblFtoC">converted Fahrenheit will appear here</p></td>
+    </tr>
+    <tr>
+      <td title="Celsius or Centigrade">Celsius to Fahrenheit</td>
+      <td>
+        <input type="text" id="txtCtoF" name="txtCtoF" size="32" maxlength="80" 
+               onchange="document.getElementById('lblCtoF').textContent = (((9/5)*document.getElementById('txtCtoF').value) + 32) + ' &deg; Fahrenheit';" />
+      </td>
+      <td>
+        <input type="button" name="btnCtoF" id="btnCtoF" value="calculate" 
+               onclick="document.getElementById('lblCtoF').textContent = (((9/5)*document.getElementById('txtCtoF').value) + 32) + ' &deg; Fahrenheit';" />
+      </td>
+      <td style='border:1px red solid;'><p id="lblCtoF">converted Celsius will appear here</p></td>
+    </tr>
+  </table>
+</div>
+<br />
+
+<div id="divAcreage">
+  <h3 style='text-decoration:underline;'>Acreage</h3>
+  <table id="tblAcreageConversion">
+    <tr>
+      <th>Conversion Type</th>
+      <th>Enter Acreage Here</th>
+      <th>Calc</th>
+      <th>Output</th>
+    </tr>
+    <tr>
+      <td>Acreage to Sq. Miles</td>
+      <td>
+        <input type="text" id="txtAtoS" name="txtAtoS" size="32" maxlength="80" 
+               onchange="document.getElementById('lblAtoS').textContent = (.0015625 * document.getElementById('txtAtoS').value) + 
+                        ' square miles (' + (Math.sqrt(.0015625 * document.getElementById('txtAtoS').value)) + ' miles to a side)';" />
+        </td>
+      <td>
+        <input type="button" name="btnAtoS" id="btnAtoS" value="calculate" 
+               onclick="document.getElementById('lblAtoS').textContent = (.0015625 * document.getElementById('txtAtoS').value) + 
+                        ' square miles (' + (Math.sqrt(.0015625 * document.getElementById('txtAtoS').value)) + ' miles to a side)';" />
+        </td>
+      <td style='border:1px red solid;'><p id="lblAtoS">converted Acreage will appear here</p></td>
+    </tr>
+    </table>
+</div>
+
+<br>
+<div id="divMetricEnglish">
+  <h2 style="text-decoration:underline;">Metrics</h2>
+  
+    <div id="divMetersFeet">
+      <h3>Meters-Feet</h3>
+      <table id="tblMetersFeet">
+      <tr>
+        <th>Conversion Type</th>
+        <th>Enter Value Here</th>
+        <th>Calc</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>Meters to Feet</td>
+        <td>
+          <input type="text" id="txtMtoF" name="txtMtoF" size="32" maxlength="80" 
+                 onchange="document.getElementById('lblMtoF').textContent = (3.28083 * document.getElementById('txtMtoF').value) + ' feet';" />
+        </td>
+        <td>
+          <input type="button" name="btnMtoF" id="btnMtoF" value="calculate" 
+                 onclick="document.getElementById('lblMtoF').textContent = (3.28083 * document.getElementById('txtMtoF').value) + ' feet';" />
+        </td>
+        <td style='border:1px red solid;'><p id="lblMtoF">converted Meters will appear here</p></td>
+      </tr>
+      <tr>
+        <td>Feet to Meters</td>
+      <td>
+        <input type="text" id="txtFtoM" name="txtFtoM" size="32" maxlength="80" 
+               onchange="document.getElementById('lblFtoM').textContent = (.3048 * document.getElementById('txtFtoM').value) + ' meters';" />
+        </td>
+      <td>
+        <input type="button" name="btnFtoM" id="btnFtoM" value="calculate" 
+               onclick="document.getElementById('lblFtoM').textContent = (.3048 * document.getElementById('txtFtoM').value) + ' meters';" />
+        </td>
+      <td style='border:1px red solid;'><p id="lblFtoM">converted Feet will appear here</p></td>
+      </tr>
+    </table>
+  </div>
+  
+   <div id="divCentimetersInches">
+      <h3>Centimeters-Inches</h3>
+      <table id="tblCentimetersInches">
+      <tr>
+        <th>Conversion Type</th>
+        <th>Enter Value Here</th>
+        <th>Calc</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>Centimeters to Inches</td>
+        <td>
+          <input type="text" id="txtCtoI" name="txtCtoI" size="32" maxlength="80" 
+                 onchange="document.getElementById('lblCtoI').textContent = (.3937 * document.getElementById('txtCtoI').value) + ' inches';" />
+        </td>
+        <td>
+          <input type="button" name="btnCtoI" id="btnCtoI" value="calculate" 
+                 onclick="document.getElementById('lblCtoI').textContent = (.3937 * document.getElementById('txtCtoI').value) + ' inches';" />
+        </td>
+        <td style='border:1px red solid;'><p id="lblCtoI">converted Inches will appear here</p></td>
+      </tr>
+      <tr>
+        <td>Inches to Centimeters</td>
+      <td>
+        <input type="text" id="txtItoC" name="txtItoC" size="32" maxlength="80" 
+               onchange="document.getElementById('lblItoC').textContent = (2.54 * document.getElementById('txtItoC').value) + ' centimeters';" />
+        </td>
+      <td>
+        <input type="button" name="btnItoC" id="btnItoC" value="calculate" 
+               onclick="document.getElementById('lblItoC').textContent = (2.54 * document.getElementById('txtItoC').value) + ' centimeters';" />
+        </td>
+      <td style='border:1px red solid;'><p id="lblItoC">converted Centimeters will appear here</p></td>
+      </tr>
+    </table>
+  </div>
+  
+  <div id="divKilometerMiles">
+      <h3>Kilometers-Miles</h3>
+      <table id="tblKilometersMiles">
+      <tr>
+        <th>Conversion Type</th>
+        <th>Enter Value Here</th>
+        <th>Calc</th>
+        <th>Output</th>
+      </tr>
+      <tr>
+        <td>Kilometers to Miles</td>
+        <td>
+          <input type="text" id="txtKtoM" name="txtKtoM" size="32" maxlength="80" 
+                 onchange="document.getElementById('lblKtoM').textContent = (.6214 * document.getElementById('txtKtoM').value) + ' miles';" />
+        </td>
+        <td>
+          <input type="button" name="btnKtoM" id="btnKtoM" value="calculate" 
+                 onclick="document.getElementById('lblKtoM').textContent = (.6214 * document.getElementById('txtKtoM').value) + ' miles';" />
+        </td>
+        <td style='border:1px red solid;'><p id="lblKtoM">converted Miles will appear here</p></td>
+      </tr>
+      <tr>
+        <td>Miles to Kilometers</td>
+      <td>
+        <input type="text" id="txtMtoK" name="txtMtoK" size="32" maxlength="80" 
+               onchange="document.getElementById('lblMtoK').textContent = (1.609 * document.getElementById('txtMtoK').value) + ' kilometers';" />
+        </td>
+      <td>
+        <input type="button" name="btnMtoK" id="btnMtoK" value="calculate" 
+               onclick="document.getElementById('lblMtoK').textContent = (1.609 * document.getElementById('txtMtoK').value) + ' kilometers';" />
+        </td>
+      <td style='border:1px red solid;'><p id="lblMtoK">converted Kilometers will appear here</p></td>
+      </tr>
+    </table>
+  </div>
+  
+</div>
+
+<div id="divLatLongitude">
+  <h3 style='text-decoration:underline;'>Latitude - Longitude</h3>
+  <table id="tblMetersConversion">
+    <tr>
+      <th>Conversion Type</th>
+      <th>Degrees</th>
+      <th>Minutes</th>
+      <th>Seconds</th>
+      <th>Calc</th>
+      <th>Decimal Output</th>
+    </tr>
+    <tr>
+      <td>Degrees/Minutes/Seconds to Decimal</td>
+      <td>
+        <input name="txtDegrees" type="text" id="txtDegrees" 
+               onchange="document.getElementById('lblLatLong').textContent = 
+                        parseFloat(document.getElementById('txtDegrees').value) + 
+                        (parseFloat(document.getElementById('txtMinutes').value) / 60) + 
+                        (parseFloat(document.getElementById('txtSeconds').value) / 3600);" 
+               value="0" size="10" maxlength="5" />
+      </td>
+      <td>
+        <input name="txtMinutes" type="text" id="txtMinutes" 
+               onchange="document.getElementById('lblLatLong').textContent = 
+                        parseFloat(document.getElementById('txtDegrees').value) + 
+                        (parseFloat(document.getElementById('txtMinutes').value) / 60) + 
+                        (parseFloat(document.getElementById('txtSeconds').value) / 3600);" 
+               value="0" size="10" maxlength="5" />
+      </td>
+      <td>
+        <input name="txtSeconds" type="text" id="txtSeconds" 
+               onchange="document.getElementById('lblLatLong').textContent = 
+                        parseFloat(document.getElementById('txtDegrees').value) + 
+                        (parseFloat(document.getElementById('txtMinutes').value) / 60) + 
+                        (parseFloat(document.getElementById('txtSeconds').value) / 3600);"
+               value="0" size="10" maxlength="5" />
+      </td>
+      <td>
+        <input type="button" name="btnLatLong" id="btnLatLong" value="calculate" 
+               onclick="document.getElementById('lblLatLong').textContent = 
+                        parseFloat(document.getElementById('txtDegrees').value) + 
+                        (parseFloat(document.getElementById('txtMinutes').value) / 60) + 
+                        (parseFloat(document.getElementById('txtSeconds').value) / 3600);" />
+      </td>
+      <td style='border:1px red solid;'><p id="lblLatLong">converted DMS to decimal will appear here</p></td>
+    </tr>
+    </table>
+</div>
+
+<div id="divDegreesToMiles">
+  <h3 style='text-decoration:underline;'>Degrees - Miles</h3>
+  <table id="tblMetersConversion">
+    <tr>
+      <th>Conversion Type</th>
+      <th>Enter Decimal Degrees Here</th>
+      <th>Calc</th>
+      <th>Output</th>
+    </tr>
+    <tr>
+      <td>Degrees to Miles</td>
+      <td>
+        <input type="text" id="txtDtoM" name="txtDtoM" size="32" maxlength="80" 
+               onchange="document.getElementById('lblDtoM').textContent = (69 * document.getElementById('txtDtoM').value) + ' miles';" />
+        </td>
+      <td>
+        <input type="button" name="btnDtoM" id="btnDtoM" value="calculate" 
+               onclick="document.getElementById('lblDtoM').textContent = (69 * document.getElementById('txtDtoM').value) + ' miles';" />
+        </td>
+      <td style='border:1px red solid;'><p id="lblDtoM">converted Degrees will appear here</p></td>
+    </tr>
+    </table>
+</div>
+
+</td></tr></table>
+</td></tr></table>
+
+</body>
+</html>
